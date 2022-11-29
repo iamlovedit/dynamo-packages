@@ -1,0 +1,30 @@
+div {
+  display: block;
+}
+
+.content-container {
+  position: absolute;
+  top: 46px;
+  bottom: 62px;
+  width: 100%;
+}
+
+.canvas-container {
+  position: absolute;
+  top: 46px;
+  bottom: 0px;
+  width: 100%;
+  z-index: -100;
+}
+
+.data_container {
+  display: none;
+  z-index: 5;
+  color: #CCC;
+  padding: 100px 150px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(50, 50, 50, 0.8);
+  top: 0px;
+}
