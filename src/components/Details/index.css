@@ -1,0 +1,7 @@
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto 12px;
+    justify-content: space-between;
+}

@@ -1,6 +1,7 @@
 import { List } from 'antd';
 import { Package } from '../../models/package';
 import { Version } from '../../models/version';
+import './index.css'
 
 export interface Props {
     packageObj: Package;
@@ -9,20 +10,15 @@ export interface Props {
 
 function Details({ packageObj, versions }: Props) {
     return (
-        <div style={{ paddingLeft: "50px", paddingRight: "50px" }}>
-            <div>
-                <h3 style={{ textAlign: "center" }}>
+        <div className='detailsContainer'>
+                <h3>
                     {packageObj.name}
                 </h3>
-            </div>
-            <div>
                 <p>
                     {
                         packageObj.description
                     }
                 </p>
-            </div>
-            <div style={{ height: "300px" }}>
                 <List
                     itemLayout="horizontal"
                     dataSource={versions}
@@ -38,7 +34,6 @@ function Details({ packageObj, versions }: Props) {
                         </List.Item>
                     )}
                 />
-            </div>
         </div>
     )
 }

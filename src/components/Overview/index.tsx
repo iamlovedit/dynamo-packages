@@ -8,14 +8,14 @@ export interface Props {
 
 function Overview({content,title}:Props) {
   return (
-    <div className="overviewContainer">
+    <div>
             <p className='stat-metric'>
                 {content}
             </p>
             <p className='stat-title'>
                 {title}
             </p>
-        </div>
+    </div>
   )
 }
 export default Overview

@@ -69,7 +69,7 @@ function PackageDispalyer({ keyword }: props) {
     }, [keyword, orderField])
 
     return (
-        <div style={{ padding: "40px" }}>
+        <div className="displayerContainer">
             <Drawer
                 placement="left"
                 size="large"
@@ -77,14 +77,13 @@ function PackageDispalyer({ keyword }: props) {
                 onClose={onDrawerClose}>
                 <Details packageObj={packageDetail} versions={versions} />
             </Drawer >
-            <Space direction="vertical" size="middle" style={{ display: 'flex' }} >
+            <div>
                 <Select
                     showSearch={false}
                     style={{ width: 200 }}
                     placeholder="排序"
                     optionFilterProp="children"
                     defaultValue="下载量"
-
                     onChange={(value: string, option: any) => {
                         var { key } = option;
                         setOrderField(key);
@@ -102,8 +101,10 @@ function PackageDispalyer({ keyword }: props) {
                     <Option value="4" key="createTime">发布时间</Option>
                     <Option value="5" key="updateTime">更新时间</Option>
                 </Select>
+            </div>
+            <div className='listContainer'>
                 <List
-                    size="large"
+                    size="small"
                     bordered={true}
                     split={true}
                     pagination={{
@@ -133,10 +134,12 @@ function PackageDispalyer({ keyword }: props) {
                                     </Button>}
                                     description={`发布时间:${packageObj.createTime}  更新时间:${packageObj.updateTime}`}
                                 />
-                                {packageObj.description}
+                                <p>
+                                    {packageObj.description}
+                                </p>
                             </List.Item>
                         )} />
-            </Space>
+            </div>
         </div >
     )
 }
