@@ -77,7 +77,7 @@ function PackageDispalyer({ keyword }: props) {
                 onClose={onDrawerClose}>
                 <Details packageObj={packageDetail} versions={versions} />
             </Drawer >
-            <div>
+            <div className="selectorContainer">
                 <Select
                     showSearch={false}
                     style={{ width: 200 }}

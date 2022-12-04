@@ -96,7 +96,7 @@ function App() {
           {elements}
         </div>
         <div className="footer">
-          此网站仅作为镜像站供用户下载节点包,版权归官方所有@Autodesk。
+          此网站仅作为镜像站,版权归官方所有@Autodesk。
         </div>
       </div>
   );
