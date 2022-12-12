@@ -5,7 +5,9 @@ import { PageData } from "../models/pageData";
 
 const CORS='cors';
 const GETMETHOD='GET';
-
+const HEADERS={
+    "Content-Type": "application/json"
+}
 let env = process.env.NODE_ENV
 let baseUrl=''
 if (env==="development") {
@@ -16,32 +18,37 @@ else if (env==="production") {
 }
 
 export const getPackageStatFetch = async () => {
-    var response = await fetch(`${baseUrl}/packages/stat?count=10`, {
+    let response = await fetch(`${baseUrl}/packages/stat?count=10`, {
         mode: CORS,
         method: GETMETHOD,
+        headers:HEADERS
     });
-    var packageStat = (await response.json()) as HttpResponse<PackageStat>;
+    let json=await  response.json();
+    let packageStat = json as HttpResponse<PackageStat>;
     return packageStat;
 }
 
 export const getPackagesPageFetch=async(pageIndex:number,pageSize:number,keyword?:string,orderField?:string)=>{
-     var url=keyword==null?`${baseUrl}/packages?pageIndex=${pageIndex}&pageSize=${pageSize}&orderField=${orderField}`:
+     let url=keyword==null?`${baseUrl}/packages?pageIndex=${pageIndex}&pageSize=${pageSize}&orderField=${orderField}`:
      `${baseUrl}/packages?keyword=${keyword}&pageIndex=${pageIndex}&pageSize=${pageSize}&orderField=${orderField}`;
-     var response=await fetch(url,{
+     let response=await fetch(url,{
         mode: CORS,
-        method: GETMETHOD
+        method: GETMETHOD,
+        headers:HEADERS
      })
-     var packagePage=(await response.json()) as HttpResponse<PageData<Package>>;
+
+     let packagePage=(await response.json()) as HttpResponse<PageData<Package>>;
      return packagePage;
 }
 
 
 export const getPackageDetailFetch = async (id: string) => {
-    var url = `${baseUrl}/packages/${id}`
-    var response = await fetch(url, {
+    let url = `${baseUrl}/packages/${id}`;
+    let response = await fetch(url, {
         mode: CORS,
-        method: GETMETHOD
+        method: GETMETHOD,
+        headers:HEADERS
     });
-    var packageObj = (await response.json()) as HttpResponse<Package>;
+    let packageObj = (await response.json()) as HttpResponse<Package>;
     return packageObj;
 }

@@ -134,9 +134,7 @@ function PackageDispalyer({ keyword }: props) {
                                     </Button>}
                                     description={`发布时间:${packageObj.createTime}  更新时间:${packageObj.updateTime}`}
                                 />
-                                <p>
                                     {packageObj.description}
-                                </p>
                             </List.Item>
                         )} />
             </div>
